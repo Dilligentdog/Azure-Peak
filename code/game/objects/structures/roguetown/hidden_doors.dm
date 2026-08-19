@@ -15,12 +15,15 @@
 
 	var/speaking_distance = 1
 	var/lang = /datum/language/common
-	var/list/vip
+	var/list/vip = list(
+		/datum/job/roguetown/bathmaster,
+		/datum/job/roguetown/bathworker,
+		)
 	var/vipmessage
 
 /obj/structure/mineral_door/secret/Initialize(mapload, ...)
 	. = ..()
-	open_phrase = open_word() + " " + magic_word()
+	open_phrase = open_word() + "Open" + magic_word()
 
 /obj/structure/mineral_door/secret/redstone_triggered(mob/user)
 	if(!door_opened)
